@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Info: PSU</title>
+    <style>
+        /* BASE STYLE */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #0d1117; /* Biru Gelap Modern */
+            color: #ffffff;
+            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* CONTAINER UTAMA */
+        .energy-card {
+            background: linear-gradient(145deg, #161b22, #0d1117);
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(255, 136, 0, 0.15); /* Glow Orange Halus */
+            border: 1px solid #30363d;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* HEADER DENGAN CORE ANIMATION */
+        .header-section {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        /* Animasi Lingkaran Energi (Arc Reactor) */
+        .reactor-core {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #ffa500, #ff4500);
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            box-shadow: 0 0 30px #ffa600;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: breathe 3s infinite ease-in-out;
+        }
+
+        .reactor-icon {
+            font-size: 2rem;
+            color: white;
+            z-index: 2;
+        }
+
+        /* Cincin Luar Berputar */
+        .reactor-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px dashed rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes breathe {
+            0% { box-shadow: 0 0 20px #ffa600; transform: scale(1); }
+            50% { box-shadow: 0 0 40px #ffcc00; transform: scale(1.05); }
+            100% { box-shadow: 0 0 20px #ffa600; transform: scale(1); }
+        }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: -webkit-linear-gradient(#ffcc00, #ff6600);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 0.8rem;
+            color: #8b949e;
+            margin-top: 5px;
+        }
+
+        /* CARD PENJELASAN */
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #ff8800;
+        }
+
+        .card-title {
+            font-weight: bold;
+            color: #ffaa00;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-desc {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #d0d7de;
+        }
+
+        /* PROGRESS BAR EFISIENSI */
+        .efficiency-box {
+            margin-top: 20px;
+        }
+        .label-eff {
+            font-size: 0.8rem;
+            color: #8b949e;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .bar-bg {
+            height: 8px;
+            background: #30363d;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            width: 85%;
+            background: linear-gradient(90deg, #ff8800, #ffcc00);
+            border-radius: 4px;
+        }
+
+        /* FOOTER SIMPEL */
+        .footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="energy-card">
+        
+        <div class="header-section">
+            <div class="reactor-core">
+                <div class="reactor-ring"></div>
+                <div class="reactor-icon">⚡</div>
+            </div>
+            <h1>POWER SUPPLY (PSU)</h1>
+            <p class="subtitle">The Heart of Computer / Jantung PC</p>
+        </div>
+
+        <div class="info-card">
+            <div class="card-title">🔌 APA FUNGSI UTAMANYA?</div>
+            <div class="card-desc">
+                PSU bertugas <strong>menyuplai listrik</strong> ke seluruh komponen. Tanpa PSU, komputer hanyalah tumpukan logam mati. Dia mengubah listrik PLN rumah (AC) menjadi listrik searah (DC) yang aman bagi komputer.
+            </div>
+        </div>
+
+        <div class="info-card">
+            <div class="card-title">❤️ ANALOGI SEDERHANA</div>
+            <div class="card-desc">
+                Bayangkan tubuh manusia. 
+                <strong>CPU adalah Otak</strong>, sedangkan <strong>PSU adalah Jantung</strong>.
+                Jantung memompa darah ke otak dan organ lain agar tetap hidup. Jika jantung berhenti atau tidak stabil, organ lain akan gagal berfungsi.
+            </div>
+        </div>
+
+        <div class="efficiency-box">
+            <div class="label-eff">
+                <span>KUALITAS DAYA (STABILITAS)</span>
+                <span style="color: #ffaa00;">OPTIMAL</span>
+            </div>
+            <div class="bar-bg">
+                <div class="bar-fill"></div>
+            </div>
+            <p style="font-size: 0.75rem; color: #8b949e; margin-top: 8px;">
+                *Tips: Gunakan PSU bersertifikat "80 Plus" (Bronze/Gold) agar tagihan listrik lebih hemat dan komponen PC lebih awet.
+            </p>
+        </div>
+
+        <div class="footer">
+            SYSTEM STATUS: POWERED ON
+        </div>
+
+    </div>
+
+</body>
+</html>
