@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Info: CPU</title>
+    <style>
+        /* RESET & BASE STYLE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050505; /* Hitam Pekat */
+            color: #e0e0e0;
+            font-family: 'Courier New', Courier, monospace; /* Font ala Coding/System */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* CONTAINER KARTU UTAMA */
+        .system-window {
+            background: #111;
+            border: 1px solid #333;
+            border-top: 4px solid #00f2ff; /* Aksen Neon Cyan */
+            width: 100%;
+            max-width: 400px; /* Ukuran pas di HP */
+            padding: 25px;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.15); /* Efek Glowing */
+            border-radius: 8px;
+            animation: slideUp 0.8s ease-out; /* Animasi Muncul */
+            position: relative;
+        }
+
+        /* ANIMASI MUNCUL */
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* HEADER */
+        .header {
+            border-bottom: 1px dashed #444;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .alert-text {
+            color: #00f2ff;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            color: white;
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* BAGIAN STATUS BAR */
+        .status-section {
+            margin-bottom: 25px;
+        }
+
+        .label {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #333;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 98%; /* 98% Critical Role */
+            background: linear-gradient(90deg, #00f2ff, #0066ff);
+            box-shadow: 0 0 10px #00f2ff;
+        }
+
+        /* LIST SKILL */
+        .skills-box {
+            background: #1a1a1a;
+            padding: 15px;
+            border-left: 3px solid #00f2ff;
+            margin-bottom: 25px;
+        }
+
+        .skills-box ul {
+            list-style: none;
+        }
+
+        .skills-box li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .icon { margin-right: 8px; }
+
+        /* FUN FACT & WARNING BOXES */
+        .info-box {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #333;
+        }
+
+        .highlight { color: #ffd700; } /* Warna Emas */
+        .warning { color: #ff4d4d; border-color: #ff4d4d; }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #555;
+            margin-top: 30px;
+            letter-spacing: 1px;
+        }
+
+        /* Hiasan Sudut Tech */
+        .corner {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 2px solid #555;
+            transition: 0.3s;
+        }
+        .tl { top: 5px; left: 5px; border-right: 0; border-bottom: 0; }
+        .tr { top: 5px; right: 5px; border-left: 0; border-bottom: 0; }
+        .bl { bottom: 5px; left: 5px; border-right: 0; border-top: 0; }
+        .br { bottom: 5px; right: 5px; border-left: 0; border-top: 0; }
+
+    </style>
+</head>
+<body>
+
+    <div class="system-window">
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <div class="header">
+            <div class="alert-text">SYSTEM DETECTED</div>
+            <h1>PROCESSOR (CPU)</h1>
+            <p class="subtitle">Alias: The Brain 🧠</p>
+        </div>
+
+        <div class="status-section">
+            <span class="label">IMPORTANCE LEVEL:</span>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <span class="label" style="text-align: right; color: #00f2ff;">CRITICAL (99.9%)</span>
+        </div>
+
+        <div class="skills-box">
+            <span class="label" style="margin-bottom: 10px;">⚡ ACTIVE SKILLS:</span>
+            <ul>
+                <li>📥 <b>Fetch:</b> Mengambil Data</li>
+                <li>🧐 <b>Decode:</b> Menerjemahkan Kode</li>
+                <li>🚀 <b>Execute:</b> Melakukan Perintah</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong style="color: #00f2ff;">💡 SYSTEM INTEL:</strong><br>
+            <p style="margin-top: 5px;">
+                Tanpa benda sekecil ini, PC seharga 50 juta pun cuma jadi kaleng kerupuk. Dia yang "berpikir" saat kamu main game sambil buka Spotify.
+            </p>
+        </div>
+
+        <div class="info-box warning" style="background: rgba(255, 77, 77, 0.1);">
+            <strong>⚠️ WARNING:</strong><br>
+            Butuh pendingin (Cooler). Jika suhu mencapai batas <span class="highlight">Thermal Throttling</span>, kinerja sistem akan menurun drastis!
+        </div>
+
+        <div class="footer">
+            >> SCAN COMPLETE <<
+        </div>
+    </div>
+
+</body>
+</html>
