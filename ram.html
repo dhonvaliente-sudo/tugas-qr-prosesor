@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Info: RAM</title>
+    <style>
+        /* RESET & BASE STYLE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050010; /* Ungu Gelap Hampir Hitam */
+            color: #e0d0ff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font Modern Clean */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            /* Latar belakang gradasi halus */
+            background: radial-gradient(circle at center, #1a0b2e 0%, #000000 100%);
+        }
+
+        /* CONTAINER KARTU UTAMA */
+        .system-window {
+            background: rgba(20, 10, 30, 0.9);
+            border: 2px solid transparent;
+            /* Border Gradient (Ungu ke Pink) */
+            background-image: linear-gradient(#0f0518, #0f0518), linear-gradient(135deg, #b026ff, #ff00cc);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            box-shadow: 0 0 30px rgba(176, 38, 255, 0.2);
+            border-radius: 15px;
+            position: relative;
+            animation: float 3s ease-in-out infinite; /* Animasi Melayang Pelan */
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(176, 38, 255, 0.3);
+            padding-bottom: 15px;
+        }
+
+        .icon-header {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            display: block;
+            text-shadow: 0 0 10px #b026ff;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            /* Teks Gradient RGB */
+            background: -webkit-linear-gradient(left, #b026ff, #ff00cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #ff00cc;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        /* CAPCITY BAR */
+        .capacity-box {
+            background: #150a20;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border: 1px solid #b026ff;
+        }
+
+        .cap-label {
+            font-size: 0.8rem;
+            color: #bbb;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .rgb-bar {
+            height: 10px;
+            width: 100%;
+            background: #333;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .rgb-fill {
+            height: 100%;
+            width: 60%;
+            /* Animasi Warna RGB Berjalan */
+            background: linear-gradient(90deg, #b026ff, #ff00cc, #00f2ff);
+            background-size: 200% 200%;
+            animation: rgbFlow 2s linear infinite;
+        }
+
+        @keyframes rgbFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* ANALOGY SECTION (MEJA KERJA) */
+        .analogy-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .analogy-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .analogy-item:last-child { margin-bottom: 0; }
+
+        .analogy-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            width: 40px;
+            text-align: center;
+        }
+
+        .analogy-text strong { color: #fff; display: block; }
+        .analogy-text span { font-size: 0.85rem; color: #aaa; }
+
+        /* INTEL & WARNING */
+        .intel-text {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #ddd;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .warning-badge {
+            background: linear-gradient(45deg, #ff0055, #ff00cc);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(255, 0, 85, 0.3);
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #666;
+            letter-spacing: 2px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="system-window">
+        <div class="header">
+            <span class="icon-header">🧠</span>
+            <h1>RAM MEMORY</h1>
+            <p class="subtitle">ALIAS: THE WORKBENCH 🪑</p>
+        </div>
+
+        <div class="capacity-box">
+            <div class="cap-label">
+                <span>SYSTEM LOAD</span>
+                <span style="color:#ff00cc">ACTIVE</span>
+            </div>
+            <div class="rgb-bar">
+                <div class="rgb-fill"></div>
+            </div>
+        </div>
+
+        <div class="intel-text">
+            <strong>KONSEP "MEJA KERJA":</strong><br>
+            Semakin besar GB RAM-mu, semakin luas "Meja Kerja"-mu. Artinya, kamu bisa membuka banyak aplikasi sekaligus tanpa berantakan (Lag).
+        </div>
+
+        <div class="analogy-box">
+            <div class="analogy-item">
+                <div class="analogy-icon">📂</div>
+                <div class="analogy-text">
+                    <strong>HARDDISK = Lemari Arsip</strong>
+                    <span>Gudang data permanen, tapi lambat diambil.</span>
+                </div>
+            </div>
+            <div class="analogy-item" style="border-left: 3px solid #b026ff; padding-left: 10px;">
+                <div class="analogy-icon">🪑</div>
+                <div class="analogy-text">
+                    <strong>RAM = Meja Kerja</strong>
+                    <span>Tempat data dibuka & diproses. Super cepat!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="warning-badge">
+            ⚠️ PERINGATAN: SIFAT VOLATILE!<br>
+            <span style="font-weight: normal; font-size: 0.8rem;">Saya mudah lupa. Jika listrik mati/Shutdown, semua data di dalam saya akan HILANG seketika. Jangan lupa Save!</span>
+        </div>
+
+        <div class="footer">
+            // RANDOM ACCESS MEMORY //
+        </div>
+    </div>
+
+</body>
+</html>
